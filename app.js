@@ -1,6 +1,7 @@
 let firstNumberInput = ""
 let secondNumberInput = ""
 let operatorInput = ""
+let answer ;
 const output = document.querySelector(".output")
 const operatorContainer = document.querySelector(".operators")
 const plus = document.querySelector("#plus")
@@ -17,6 +18,7 @@ const six = document.querySelector("#six")
 const seven = document.querySelector("#seven")
 const eight = document.querySelector("#eight")
 const nine = document.querySelector("#nine")
+const equal = document.querySelector("#equal")
 one.addEventListener("click",() => {
     if (operatorInput == "" && firstNumberInput !== "" ) {
     firstNumberInput += "1"
@@ -274,7 +276,7 @@ switch (target.id) {
 
 
 
-
+equal.addEventListener("click", runEquation)
 
 
 
@@ -282,21 +284,62 @@ switch (target.id) {
 
 
 const mathfunction = {
-add : function(a,b) {return a+b},
-subtract : function(a,b) {return a-b},
-divide : function(a,b) {return a/b},
-multiply : function(a,b) {return a*b},    
+add : function() {
+firstNumberInput = +firstNumberInput
+secondNumberInput = +secondNumberInput
+answer = firstNumberInput + secondNumberInput
+firstNumberInput = answer.toString()
+secondNumberInput = ""
+operatorInput = ""
+output.textContent = firstNumberInput},
+subtract : function() {
+firstNumberInput = +firstNumberInput
+secondNumberInput = +secondNumberInput
+answer = firstNumberInput - secondNumberInput
+firstNumberInput = answer.toString()
+secondNumberInput = ""
+operatorInput = ""
+output.textContent = firstNumberInput
+},
+divide : function() {
+firstNumberInput = +firstNumberInput
+secondNumberInput = +secondNumberInput
+answer = firstNumberInput / secondNumberInput
+firstNumberInput = answer.toString()
+secondNumberInput = ""
+operatorInput = ""
+output.textContent = firstNumberInput    
+},
+multiply : function() {
+firstNumberInput = +firstNumberInput
+secondNumberInput = +secondNumberInput
+answer = firstNumberInput * secondNumberInput
+firstNumberInput = answer.toString()
+secondNumberInput = ""
+operatorInput = ""
+output.textContent = firstNumberInput     
+},    
 }
 
 
 
-function runEquation(a,b) {
-    switch (operatorInput) {
-        case "+": mathfunction.add(a,b)
-            
-            break;
+function runEquation() {
+  if (operatorInput === "+") {
+mathfunction.add();  
+return firstNumberInput            
+  } else if (operatorInput === "-") {
+mathfunction.subtract()    
+  } else if (operatorInput === "/") {
+mathfunction.divide()     
+  } else if (operatorInput === "X") {
+  mathfunction.multiply()  
+  } else { output.textContent = "error, please clear application"
     
-        default:
-            break;
-    }
+  } {
+    
+  } {
+    
+  } {
+    
+  }
 }
