@@ -253,19 +253,31 @@ nine.addEventListener("click",() => {
 operatorContainer.addEventListener("click",(e) => {
 target = e.target    
 switch (target.id) {
-    case "plus": operatorInput = "+"
-        
+    case "plus": 
+    if (operatorInput != "") {
+     runEquation()   
+    } else { operatorInput = "+"      
+    }
+    operatorInput = "+"  
      break;
-    case "minus": operatorInput = "-"
-        
+    case "minus": if (operatorInput != "") {
+     runEquation()   
+    } else { operatorInput = "-"    
+    }
+    operatorInput = "-"    
      break;
-    case "divide": operatorInput = "/"
-        
+    case "divide": if (operatorInput != "") {
+     runEquation()   
+    } else { operatorInput = "/"   
+    }
+    operatorInput = "/"    
      break;
-    case "multiply": operatorInput = "X"
-        
+    case "multiply": if (operatorInput != "") {
+     runEquation()   
+    } else { operatorInput = "X"    
+    }
+    operatorInput = "X"    
     break;
-
     default:
         break;
 }    
