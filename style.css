@@ -13,8 +13,8 @@ width: 100vw;
 .calculatorBody {
 border: 2px solid white;    
 border-radius: 25%;
-width: 35vw;
-height: 70vh;
+width: 30vw;
+height: 65vh;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -49,10 +49,10 @@ display: flex;
 }
 
 button {
-width: 8vw;
-height: 8vh;    
+width: 6vw;
+height: 6vh;    
 }
 
 #zero {
-width: 16vw;    
+width: 12vw;    
 }

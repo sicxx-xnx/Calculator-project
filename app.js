@@ -19,6 +19,7 @@ const seven = document.querySelector("#seven")
 const eight = document.querySelector("#eight")
 const nine = document.querySelector("#nine")
 const equal = document.querySelector("#equal")
+const clear = document.querySelector("#clear")
 one.addEventListener("click",() => {
     if (operatorInput == "" && firstNumberInput !== "" ) {
     firstNumberInput += "1"
@@ -274,7 +275,13 @@ switch (target.id) {
 
 
 
-
+clear.addEventListener("click", () => {
+firstNumberInput = ""
+secondNumberInput = ""
+operatorInput = ""
+answer = ""
+output.textContent = ""    
+})
 
 equal.addEventListener("click", runEquation)
 
@@ -288,7 +295,7 @@ add : function() {
 firstNumberInput = +firstNumberInput
 secondNumberInput = +secondNumberInput
 answer = firstNumberInput + secondNumberInput
-firstNumberInput = answer.toString()
+firstNumberInput = Math.round(answer * 100) / 100 .toString();
 secondNumberInput = ""
 operatorInput = ""
 output.textContent = firstNumberInput},
@@ -296,7 +303,7 @@ subtract : function() {
 firstNumberInput = +firstNumberInput
 secondNumberInput = +secondNumberInput
 answer = firstNumberInput - secondNumberInput
-firstNumberInput = answer.toString()
+firstNumberInput = Math.round(answer * 100) / 100 .toString();
 secondNumberInput = ""
 operatorInput = ""
 output.textContent = firstNumberInput
@@ -305,7 +312,7 @@ divide : function() {
 firstNumberInput = +firstNumberInput
 secondNumberInput = +secondNumberInput
 answer = firstNumberInput / secondNumberInput
-firstNumberInput = answer.toString()
+firstNumberInput =  Math.round(answer * 100) / 100 .toString();
 secondNumberInput = ""
 operatorInput = ""
 output.textContent = firstNumberInput    
@@ -314,7 +321,7 @@ multiply : function() {
 firstNumberInput = +firstNumberInput
 secondNumberInput = +secondNumberInput
 answer = firstNumberInput * secondNumberInput
-firstNumberInput = answer.toString()
+firstNumberInput = Math.round(answer * 100) / 100 .toString();
 secondNumberInput = ""
 operatorInput = ""
 output.textContent = firstNumberInput     
